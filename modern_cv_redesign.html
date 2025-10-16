@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>سيرة ذاتية - أسامة رائد</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #059669;
+    --primary-dark: #047857;
+    --accent: #14b8a6;
+    --gold: #f59e0b;
+    --bg-light: #f0fdfa;
+    --bg-card: #ffffff;
+    --text-dark: #0f172a;
+    --text-muted: #64748b;
+    --border: #d1fae5;
+    --success: #10b981;
+    --shadow-sm: 0 2px 8px rgba(5, 150, 105, 0.1);
+    --shadow-md: 0 4px 16px rgba(5, 150, 105, 0.15);
+    --shadow-glow: 0 0 20px rgba(20, 184, 166, 0.3);
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Tajawal', sans-serif;
+    background: linear-gradient(135deg, #064e3b 0%, #0d9488 50%, #14b8a6 100%);
+    min-height: 100vh;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+    background: var(--bg-card);
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  /* Decorative Elements */
+  .container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--primary), var(--accent), var(--gold));
+  }
+  
+  /* Header Section */
+  header {
+    position: relative;
+    background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #059669 100%);
+    color: white;
+    padding: 32px 20px 28px;
+    overflow: hidden;
+  }
+  
+  header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(20, 184, 166, 0.3), transparent);
+    border-radius: 50%;
+    animation: pulse 4s ease-in-out infinite;
+  }
+  
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -15%;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.2), transparent);
+    border-radius: 50%;
+    animation: pulse 5s ease-in-out infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+  }
+  
+  .header-content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .name {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    line-height: 1.3;
+    background: linear-gradient(120deg, #ffffff, #6ee7b7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .job-title {
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 0.95;
+    margin-bottom: 20px;
+    line-height: 1.7;
+    color: #d1fae5;
+  }
+  
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 12px 16px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .contact-item:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: var(--gold);
+    transform: translateX(-3px);
+  }
+  
+  .contact-item span:first-child {
+    font-size: 18px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+  }
+  
+  /* Main Content */
+  .main-content {
+    padding: 24px 16px;
+  }
+  
+  /* Sections */
+  section {
+    margin-bottom: 32px;
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .section-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--primary-dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(90deg, var(--primary), var(--accent), transparent) 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .section-title::before {
+    content: '◆';
+    color: var(--gold);
+    font-size: 16px;
+    animation: sparkle 2s ease-in-out infinite;
+  }
+  
+  @keyframes sparkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.2); }
+  }
+  
+  /* Summary Card */
+  .summary-card {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    padding: 20px;
+    border-radius: 16px;
+    border-right: 4px solid var(--primary);
+    line-height: 1.9;
+    color: var(--text-dark);
+    font-size: 15px;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .summary-card::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    font-size: 80px;
+    color: var(--accent);
+    opacity: 0.1;
+    font-family: Georgia, serif;
+  }
+  
+  /* Project Cards */
+  .project-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 0;
+    background: linear-gradient(180deg, var(--primary), var(--accent), var(--gold));
+    transition: height 0.4s ease;
+  }
+  
+  .project-card:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-glow);
+    transform: translateX(-5px);
+  }
+  
+  .project-card:hover::before {
+    height: 100%;
+  }
+  
+  .project-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  
+  .project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  
+  .tag {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    color: var(--primary-dark);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid var(--accent);
+    transition: all 0.3s ease;
+  }
+  
+  .tag:hover {
+    background: var(--accent);
+    color: white;
+    transform: scale(1.05);
+  }
+  
+  .project-desc {
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-size: 14px;
+  }
+  
+  /* Experience Card */
+  .experience-card {
+    background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+    padding: 20px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+    border-right: 4px solid var(--success);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+  }
+  
+  .experience-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateX(-3px);
+  }
+  
+  .experience-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  
+  .experience-period {
+    color: var(--primary);
+    font-size: 13px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    display: inline-block;
+    background: rgba(5, 150, 105, 0.1);
+    padding: 4px 10px;
+    border-radius: 8px;
+  }
+  
+  .experience-desc {
+    color: var(--text-dark);
+    line-height: 1.8;
+    font-size: 14px;
+  }
+  
+  /* Skills Section */
+  .skills-section {
+    background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 100%);
+    padding: 20px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    border: 2px solid var(--border);
+  }
+  
+  .skill-item {
+    margin-bottom: 18px;
+  }
+  
+  .skill-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .skill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .skill-name {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 14px;
+  }
+  
+  .skill-percentage {
+    font-size: 13px;
+    color: var(--primary);
+    font-weight: 700;
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    padding: 2px 8px;
+    border-radius: 8px;
+  }
+  
+  .skill-bar {
+    height: 10px;
+    background: #e5e7eb;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+  }
+  
+  .skill-progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 50%, var(--gold) 100%);
+    border-radius: 10px;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .skill-progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 2s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+  
+  /* Services */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  
+  .service-item {
+    background: linear-gradient(135deg, white, #f0fdfa);
+    padding: 16px 12px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--primary-dark);
+    box-shadow: var(--shadow-sm);
+    border: 2px solid var(--border);
+    font-size: 13px;
+    line-height: 1.4;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .service-item::before {
+    content: '✦';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: var(--gold);
+    font-size: 12px;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .service-item:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+  }
+  
+  .service-item:hover::before {
+    opacity: 1;
+    transform: rotate(180deg);
+  }
+  
+  /* Info Cards */
+  .info-card {
+    background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 100%);
+    padding: 20px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    border: 2px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .info-list {
+    list-style: none;
+  }
+  
+  .info-list li {
+    padding: 10px 0;
+    color: var(--text-dark);
+    font-size: 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    line-height: 1.6;
+    transition: all 0.3s ease;
+  }
+  
+  .info-list li:hover {
+    color: var(--primary-dark);
+    transform: translateX(-3px);
+  }
+  
+  .info-list li::before {
+    content: '◆';
+    color: var(--gold);
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    animation: sparkle 2s ease-in-out infinite;
+  }
+  
+  /* Footer */
+  footer {
+    background: linear-gradient(135deg, #064e3b 0%, #047857 100%);
+    padding: 24px 16px;
+    text-align: center;
+    border-top: 3px solid var(--gold);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    animation: footerShine 3s infinite;
+  }
+  
+  @keyframes footerShine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+  
+  footer p {
+    color: #d1fae5;
+    font-size: 13px;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Tablet Styles */
+  @media (min-width: 768px) {
+    body {
+      padding: 20px;
+    }
+    
+    .container {
+      border-radius: 24px;
+      max-width: 768px;
+      box-shadow: var(--shadow-md);
+    }
+    
+    header {
+      padding: 40px 32px;
+    }
+    
+    .name {
+      font-size: 40px;
+    }
+    
+    .job-title {
+      font-size: 18px;
+    }
+    
+    .contact-info {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    
+    .contact-item {
+      flex: 0 0 auto;
+    }
+    
+    .main-content {
+      padding: 32px;
+    }
+    
+    .section-title {
+      font-size: 22px;
+    }
+    
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* Desktop Styles */
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 1200px;
+    }
+    
+    .main-content {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 32px;
+      padding: 40px;
+    }
+    
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="header-content">
+        <h1 class="name">أسامة رائد</h1>
+        <p class="job-title">متخصص في أتمتة العمليات الإدارية وتصميم الأنظمة الذكية</p>
+        <div class="contact-info">
+          <div class="contact-item">
+            <span>📱</span>
+            <span>07825287053</span>
+          </div>
+          <div class="contact-item">
+            <span>✉️</span>
+            <span>ausamaaUsama129@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <span>📍</span>
+            <span>العراق - متاح للعمل عن بُعد</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Main Column -->
+      <div class="main-column">
+        <!-- Summary -->
+        <section>
+          <h2 class="section-title">الملخص المهني</h2>
+          <div class="summary-card">
+            أمتلك خبرة واسعة في بناء أنظمة مؤتمتة تسهّل سير العمل الإداري وتربط بين أدوات مثل Google Workspace، Telegram، وWhatsApp. أهدف لتسريع الإجراءات وتقليل الأخطاء من خلال حلول ذكية مصممة خصيصاً لاحتياجات الشركات.
+          </div>
+        </section>
+
+        <!-- Projects -->
+        <section>
+          <h2 class="section-title">المشاريع والإنجازات</h2>
+          
+          <div class="project-card">
+            <h3 class="project-title">نظام إدارة دوام الموظفين + تليغرام</h3>
+            <div class="project-meta">
+              <span class="tag">تسجيل آلي</span>
+              <span class="tag">إشعارات لحظية</span>
+              <span class="tag">تقارير PDF</span>
+            </div>
+            <p class="project-desc">نظام ذكي يتابع حضور الموظفين ويصدر تقارير يومية بشكل تلقائي عبر Telegram مع إمكانية التكامل مع قواعد البيانات.</p>
+          </div>
+
+          <div class="project-card">
+            <h3 class="project-title">بوت واتساب لخدمة العملاء</h3>
+            <div class="project-meta">
+              <span class="tag">Google Sheets</span>
+              <span class="tag">إدارة طلبات</span>
+              <span class="tag">فواتير آلية</span>
+            </div>
+            <p class="project-desc">بوت تفاعلي يستقبل طلبات العملاء وينشئ فواتير آلية مع تقارير متابعة وإدارة شاملة للطلبات.</p>
+          </div>
+
+          <div class="project-card">
+            <h3 class="project-title">نظام فواتير ومخزون مصغّر</h3>
+            <div class="project-meta">
+              <span class="tag">إدارة مبيعات</span>
+              <span class="tag">تقارير أسبوعية</span>
+              <span class="tag">تتبع المخزون</span>
+            </div>
+            <p class="project-desc">حل عملي للمحلات الصغيرة لتتبع المبيعات والمخزون بسهولة دون الحاجة لاتصال دائم بالإنترنت.</p>
+          </div>
+        </section>
+
+        <!-- Experience -->
+        <section>
+          <h2 class="section-title">الخبرات العملية</h2>
+          
+          <div class="experience-card">
+            <h3 class="experience-title">مطور مستقل - برمجيات وأتمتة</h3>
+            <p class="experience-period">2022 - الآن</p>
+            <p class="experience-desc">تقديم حلول رقمية متكاملة للشركات الصغيرة والمتوسطة لتحسين سير العمل وزيادة الكفاءة من خلال تطوير أنظمة أتمتة مخصصة.</p>
+          </div>
+
+          <div class="experience-card">
+            <h3 class="experience-title">مشاريع محلية تعاقدية</h3>
+            <p class="experience-period">2020 - 2022</p>
+            <p class="experience-desc">تحليل وتحويل العمليات اليدوية إلى أنظمة مؤتمتة بالكامل مع التركيز على تبسيط الإجراءات وتقليل التكاليف التشغيلية.</p>
+          </div>
+        </section>
+
+        <!-- Skills -->
+        <section>
+          <h2 class="section-title">المهارات التقنية</h2>
+          <div class="skills-section">
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">HTML / CSS</span>
+                <span class="skill-percentage">95%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 95%"></div>
+              </div>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">JavaScript</span>
+                <span class="skill-percentage">80%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">N8N / Zapier</span>
+                <span class="skill-percentage">90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Telegram / WhatsApp Bots</span>
+                <span class="skill-percentage">88%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 88%"></div>
+              </div>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Google Sheets / Reports</span>
+                <span class="skill-percentage">93%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 93%"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Services -->
+        <section>
+          <h2 class="section-title">الخدمات المقدمة</h2>
+          <div class="services-grid">
+            <div class="service-item">تصميم مواقع احترافية</div>
+            <div class="service-item">أتمتة سير العمل</div>
+            <div class="service-item">بوتات تواصل ذكية</div>
+            <div class="service-item">تحليل تقارير البيانات</div>
+          </div>
+        </section>
+
+        <!-- Languages -->
+        <section>
+          <h2 class="section-title">اللغات</h2>
+          <div class="info-card">
+            <ul class="info-list">
+              <li>العربية (اللغة الأم)</li>
+              <li>الإنجليزية (جيد جداً)</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Values -->
+        <section>
+          <h2 class="section-title">القيم المهنية</h2>
+          <div class="info-card">
+            <ul class="info-list">
+              <li>الدقة في الأتمتة والتصميم</li>
+              <li>تسليم المشاريع في وقتها</li>
+              <li>التركيز على تجربة العميل</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2025 أسامة رائد — متخصص في أتمتة العمليات الإدارية وتطوير الحلول الذكية</p>
+    </footer>
+  </div>
+</body>
+</html>
