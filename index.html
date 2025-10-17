@@ -854,36 +854,8 @@
   
   <script>
     document.getElementById('downloadPDF').addEventListener('click', function() {
-      const button = this;
-      const originalText = button.innerHTML;
-      
-      // Show loading state
-      button.innerHTML = '<span class="download-icon">⏳</span><span>جاري التحميل...</span>';
-      button.disabled = true;
-      
-      const element = document.querySelector('.container');
-      
-      const opt = {
-        margin: 10,
-        filename: 'CV_Osama_Raed.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { 
-          scale: 2,
-          useCORS: true,
-          letterRendering: true
-        },
-        jsPDF: { 
-          unit: 'mm', 
-          format: 'a4', 
-          orientation: 'portrait'
-        }
-      };
-      
-      html2pdf().set(opt).from(element).save().then(() => {
-        // Reset button after download
-        button.innerHTML = originalText;
-        button.disabled = false;
-      });
+      // استخدام خاصية الطباعة المدمجة في المتصفح
+      window.print();
     });
   </script>
 </body>
