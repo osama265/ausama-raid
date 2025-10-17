@@ -138,6 +138,18 @@
     transition: all 0.3s ease;
   }
   
+  .contact-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+  
+  .contact-link:hover {
+    background: rgba(37, 211, 102, 0.3);
+    border-color: #25d366;
+    transform: translateX(-3px) scale(1.02);
+  }
+  
   .contact-item:hover {
     background: rgba(255, 255, 255, 0.25);
     border-color: var(--gold);
@@ -525,6 +537,58 @@
     line-height: 1.6;
     position: relative;
     z-index: 1;
+    margin-bottom: 20px;
+  }
+  
+  /* Download PDF Button */
+  .download-btn {
+    background: linear-gradient(135deg, var(--gold), #fbbf24);
+    color: var(--text-dark);
+    border: none;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+    position: relative;
+    z-index: 1;
+    margin-top: 4px;
+  }
+  
+  .download-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(245, 158, 11, 0.6);
+    background: linear-gradient(135deg, #fbbf24, var(--gold));
+  }
+  
+  .download-btn:active:not(:disabled) {
+    transform: translateY(0);
+  }
+  
+  .download-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  .download-icon {
+    font-size: 20px;
+    animation: bounce 2s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+  
+  .download-btn:hover .download-icon {
+    animation: none;
+    transform: scale(1.2);
   }
   
   /* Tablet Styles */
@@ -601,17 +665,17 @@
         <h1 class="name">أسامة رائد</h1>
         <p class="job-title">متخصص في أتمتة العمليات الإدارية وتصميم الأنظمة الذكية</p>
         <div class="contact-info">
-          <div class="contact-item">
+          <a href="https://wa.me/9647825287053" target="_blank" class="contact-item contact-link">
             <span>📱</span>
             <span>07825287053</span>
-          </div>
+          </a>
           <div class="contact-item">
             <span>✉️</span>
             <span>ausamaaUsama129@gmail.com</span>
           </div>
           <div class="contact-item">
             <span>📍</span>
-            <span>العراق - متاح للعمل عن بُعد</span>
+            <span>العراق - بابل - مركز محافظة</span>
           </div>
         </div>
       </div>
@@ -776,7 +840,51 @@
     <!-- Footer -->
     <footer>
       <p>© 2025 أسامة رائد — متخصص في أتمتة العمليات الإدارية وتطوير الحلول الذكية</p>
+      
+      <!-- Download PDF Button -->
+      <button id="downloadPDF" class="download-btn">
+        <span class="download-icon">📥</span>
+        <span>تحميل السيرة الذاتية PDF</span>
+      </button>
     </footer>
   </div>
+
+  <!-- html2pdf library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  
+  <script>
+    document.getElementById('downloadPDF').addEventListener('click', function() {
+      const button = this;
+      const originalText = button.innerHTML;
+      
+      // Show loading state
+      button.innerHTML = '<span class="download-icon">⏳</span><span>جاري التحميل...</span>';
+      button.disabled = true;
+      
+      const element = document.querySelector('.container');
+      
+      const opt = {
+        margin: 10,
+        filename: 'CV_Osama_Raed.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { 
+          scale: 2,
+          useCORS: true,
+          letterRendering: true
+        },
+        jsPDF: { 
+          unit: 'mm', 
+          format: 'a4', 
+          orientation: 'portrait'
+        }
+      };
+      
+      html2pdf().set(opt).from(element).save().then(() => {
+        // Reset button after download
+        button.innerHTML = originalText;
+        button.disabled = false;
+      });
+    });
+  </script>
 </body>
 </html>
